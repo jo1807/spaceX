@@ -52,6 +52,7 @@
     ]
   },
   "devDependencies": {
-    "@types/d3": "^5.7.2"
+    "@types/d3": "^5.7.2",
+    "@types/d3-selection": "^1.4.1"
   }
 }
