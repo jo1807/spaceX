@@ -13,7 +13,7 @@ run `npm i` to get all necessary dependencies
 
 run `npm start` and open http://localhost:3000 to view it in the browser.
 
-Alternatively you can also view the project on heroku by clicking this link www.????
+Alternatively you can also view the project on heroku by clicking this link https://space-x-data.herokuapp.com
 
 ## Navigating through space-x project
 
