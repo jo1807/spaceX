@@ -21,8 +21,21 @@ interface IRocketImage {
   src: string;
 }
 
+const CardWrapper = styled.div<ICardWrapper>(props => ({
+  display: "grid",
+  color: "black",
+  height: "600px",
+  backgroundColor: "white",
+  borderRadius: "2.5em",
+  transition: props.currentId === props.launchId ? "all 1s ease-out" : "",
+  boxShadow:
+    "0px 20px 25px -5px rgba(232,232,232,1), 0px 20px 20px -5px rgba(240,240,240,1)",
+  opacity: props.currentId === props.launchId ? 1 : 0.7,
+  transform: props.currentId === props.launchId ? "scale(0.9)" : "scale(0.8)"
+}));
+
 const ImageWrapper = styled.img({
-  height: "50%",
+  height: "300px",
   width: "100%",
   backgroundColor: "white",
   display: "grid",
@@ -36,7 +49,7 @@ const CloseButtonWrapper = styled.button({
   position: "absolute",
   border: "none",
   outline: "none",
-  justifySelf: "flex-end",
+  justifySelf: "end",
   background: "transparent",
   margin: "2em",
   ":hover": {
@@ -45,29 +58,19 @@ const CloseButtonWrapper = styled.button({
 });
 
 export const RocketImage = styled.img<IRocketImage>({
-  width: "100%"
+  width: "100%",
+  height: "100%"
 });
 
-const Test = styled.p({
+const Details = styled.p({
+  height: "100%",
   overflow: "auto scroll",
   padding: "0em 3em",
+
   "@media(max-width: 500px)": {
     padding: "0em 1em"
   }
 });
-
-export const CardWrapper = styled.div<ICardWrapper>(props => ({
-  display: "grid",
-  gridTemplateColumns: "auto",
-  color: "black",
-  backgroundColor: "white",
-  borderRadius: "2.5em",
-  transition: props.currentId === props.launchId ? "all 1s ease-out" : "",
-  boxShadow:
-    "0px 20px 25px -5px rgba(232,232,232,1), 0px 20px 20px -5px rgba(240,240,240,1)",
-  opacity: props.currentId === props.launchId ? 1 : 0.7,
-  transform: props.currentId === props.launchId ? "scale(0.9)" : "scale(0.8)"
-}));
 
 const RocketDetails: React.SFC<IRocketDetailsProps> = ({
   details,
@@ -82,7 +85,7 @@ const RocketDetails: React.SFC<IRocketDetailsProps> = ({
         <FontAwesomeIcon icon={faTimes} size="3x" color="white" />
       </CloseButtonWrapper>
       <ImageWrapper src={image} />
-      <Test>{details}</Test>
+      <Details>{details}</Details>
     </CardWrapper>
   );
 };

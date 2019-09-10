@@ -26,8 +26,7 @@ const LaunchSliderWrapper = styled.div({
   display: "grid",
   alignSelf: "center",
   justifySelf: "center",
-  gridTemplateColumns: "0.5fr 3fr 0.5fr",
-  height: "80vh"
+  gridTemplateColumns: "0.5fr 3fr 0.5fr"
 });
 
 const SliderButton = styled.button<ISliderButtonProps>(prop => ({

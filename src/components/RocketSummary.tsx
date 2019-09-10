@@ -44,7 +44,7 @@ const RocketDetailsButton = styled.button({
   marginTop: "1em",
   backgroundColor: "black",
   color: "white",
-  height: "6em",
+  height: "12em",
   width: "10em",
   fontWeight: "bold",
   fontSize: "15px",
@@ -55,9 +55,9 @@ const RocketDetailsButton = styled.button({
     color: "white",
     cursor: "pointer"
   },
-  "@media(max-width: 500px)": {
-    width: "50%",
-    height: "80%"
+  "@media(max-width: 1024px)": {
+    width: "10em",
+    height: "5em"
   }
 });
 

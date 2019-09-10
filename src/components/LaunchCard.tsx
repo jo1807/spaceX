@@ -25,6 +25,7 @@ export const CardWrapper = styled.div<ICardWrapper>(props => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  height: "600px",
   justifyItems: "center",
   color: "white",
   backgroundColor: "black",
