@@ -5,6 +5,8 @@ import SpaceXHeader from "./SpaceXHeader";
 import LaunchSlider from "./LaunchSlider";
 import BarChart from "./BarChart";
 
+import Charts from "./Charts";
+
 interface ILaunches {
   launches: object[];
   statistics: object[];
@@ -28,7 +30,7 @@ const Launches: React.FC<ILaunches> = ({ launches, statistics }) => {
     <Wrapper>
       <SpaceXHeader handleShowStatisticsModal={handleShowStatisticsModal} />
       {showStatistics ? (
-        <BarChart statistics={statistics} />
+        <Charts statistics={statistics} />
       ) : (
         <LaunchSlider launches={launches} />
       )}
