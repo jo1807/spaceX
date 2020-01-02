@@ -28,7 +28,10 @@ const Launches: React.FC<ILaunches> = ({ launches, statistics }) => {
 
   return (
     <Wrapper>
-      <SpaceXHeader handleShowStatisticsModal={handleShowStatisticsModal} />
+      <SpaceXHeader
+        statistics={statistics}
+        handleShowStatisticsModal={handleShowStatisticsModal}
+      />
       {showStatistics ? (
         <Charts statistics={statistics} />
       ) : (

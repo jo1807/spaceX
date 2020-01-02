@@ -7,6 +7,7 @@ import logo from "../images/spacex.png";
 
 interface ISpaceXHeaderProps {
   handleShowStatisticsModal: Function;
+  statistics: any;
 }
 
 const HeaderWrapper = styled.div({
@@ -50,16 +51,19 @@ const GraphButton = styled.div({
 });
 
 const SpaceXHeader: React.FC<ISpaceXHeaderProps> = ({
+  statistics,
   handleShowStatisticsModal
 }) => {
   return (
     <HeaderWrapper>
       <LogoWrapper>
-        <img src={logo} height={"100px"} width={"100%"} />
+        <img alt={"logo"} src={logo} height={"100px"} width={"100%"} />
       </LogoWrapper>
-      <GraphButton onClick={() => handleShowStatisticsModal()}>
-        <FontAwesomeIcon icon={faChartBar} size="2x" color="white" />
-      </GraphButton>
+      {statistics.length && (
+        <GraphButton onClick={() => handleShowStatisticsModal()}>
+          <FontAwesomeIcon icon={faChartBar} size="2x" color="white" />
+        </GraphButton>
+      )}
     </HeaderWrapper>
   );
 };
