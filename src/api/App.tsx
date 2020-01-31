@@ -40,24 +40,21 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const ids = ["20", "21", "22", "35", "40", "42", "65"];
-    const fetchData = async () => {
-      let fetchedResult = await Promise.all(
+    const fetchLaunchById = async () => {
+      const response = await Promise.all(
         ids.map(id => axios(`https://api.spacexdata.com/v3/launches/${id}`))
       );
-      setSpaceXData(getLaunchDetails(fetchedResult));
+      setSpaceXData(getLaunchDetails(response));
     };
-    fetchData();
+    fetchLaunchById();
   }, []);
 
   useEffect(() => {
-    async function getUserAsync() {
-      let response = await axios(`https://api.spacexdata.com/v3/launches`);
-      let data = await response;
-      return data;
-    }
-    getUserAsync().then(launches => {
-      setlaunchStatistics(getLaunchStatistics(launches));
-    });
+    const fetchAllLaunches = async () => {
+      const response = await axios(`https://api.spacexdata.com/v3/launches`);
+      setlaunchStatistics(getLaunchStatistics(response));
+    };
+    fetchAllLaunches();
   }, []);
 
   return (
