@@ -82,7 +82,10 @@ const RocketSummary: React.FC<IRocketSummaryProps> = ({
       <p>Flight Number: {flightNumber}</p>
       <p>Rocket Name: {rocketName}</p>
       <p>{missionDate}</p>
-      <RocketDetailsButton onClick={() => setToggleShowModal()}>
+      <RocketDetailsButton
+        data-testid="detailsBtnId"
+        onClick={() => setToggleShowModal()}
+      >
         Details
       </RocketDetailsButton>
       <ImageWrapper>
