@@ -15,7 +15,7 @@ interface IRocketSummaryProps {
   currentId: number;
   launchId: number;
   launchLogo: string;
-  setToggleShowModal: Function;
+  setToggleShowModal: () => void;
 }
 
 export const ImageWrapper = styled.div({
@@ -84,7 +84,7 @@ const RocketSummary: React.FC<IRocketSummaryProps> = ({
       <p>{missionDate}</p>
       <RocketDetailsButton
         data-testid="detailsBtnId"
-        onClick={() => setToggleShowModal()}
+        onClick={setToggleShowModal}
       >
         Details
       </RocketDetailsButton>
