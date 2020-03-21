@@ -3,8 +3,6 @@ import styled from "@emotion/styled";
 
 import SpaceXHeader from "./SpaceXHeader";
 import LaunchSlider from "./LaunchSlider";
-import BarChart from "./BarChart";
-
 import Charts from "./Charts";
 
 interface ILaunches {
