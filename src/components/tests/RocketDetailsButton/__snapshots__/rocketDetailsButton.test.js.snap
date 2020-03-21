@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1n0vo1"
+  >
+    <p
+      class="css-fd8g0q"
+    />
+    <p>
+      Flight Number: 
+    </p>
+    <p>
+      Rocket Name: 
+    </p>
+    <p />
+    <button
+      class="css-77b2el"
+      data-testid="detailsBtnId"
+    >
+      Details
+    </button>
+    <div
+      class="css-d04zvd"
+    >
+      <img
+        class="css-54d50x"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
