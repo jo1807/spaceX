@@ -106,10 +106,18 @@ const LaunchSlider: React.FC<ILaunches> = ({ launches }) => {
   };
   return (
     <LaunchSliderWrapper>
-      <SliderButton onClick={onPrevClick} disabled={currentId === 1}>
+      <SliderButton
+        data-testid="back-btn"
+        onClick={onPrevClick}
+        disabled={currentId === 1}
+      >
         <FontAwesomeIcon icon={faChevronLeft} size="3x" color="white" />
       </SliderButton>
-      <CardWrapper currentId={currentId} launchId={launches.id}>
+      <CardWrapper
+        data-testid={currentId}
+        currentId={currentId}
+        launchId={launches.id}
+      >
         {launchesInView().map((launch: ISpaceXData, i: number) => {
           return (
             <LaunchCard key={launch.id} launch={launch} currentId={currentId} />
@@ -117,6 +125,7 @@ const LaunchSlider: React.FC<ILaunches> = ({ launches }) => {
         })}
       </CardWrapper>
       <SliderButton
+        data-testid="next-btn"
         onClick={onNextClick}
         disabled={currentId === allLaunches.length}
       >
