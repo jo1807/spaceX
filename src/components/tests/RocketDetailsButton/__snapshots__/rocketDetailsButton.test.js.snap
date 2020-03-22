@@ -4,17 +4,25 @@ exports[`renders 1`] = `
 <DocumentFragment>
   <div
     class="css-1n0vo1"
+    data-testid="rocket-summary-id"
   >
     <p
       class="css-fd8g0q"
+      data-testid="mission-name"
     />
-    <p>
+    <p
+      data-testid="flight-number"
+    >
       Flight Number: 
     </p>
-    <p>
+    <p
+      data-testid="rocket-name"
+    >
       Rocket Name: 
     </p>
-    <p />
+    <p
+      data-testid="mission-date"
+    />
     <button
       class="css-77b2el"
       data-testid="detailsBtnId"
@@ -26,6 +34,7 @@ exports[`renders 1`] = `
     >
       <img
         class="css-54d50x"
+        data-testid="logoId"
       />
     </div>
   </div>
