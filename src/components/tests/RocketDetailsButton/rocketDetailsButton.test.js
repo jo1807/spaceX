@@ -13,5 +13,3 @@ it('has text content saying "Details"', () => {
   const { getByTestId } = render(<RocketDetailsButton />);
   expect(getByTestId("detailsBtnId").textContent).toBe("Details");
 });
-
-//check for onClick
