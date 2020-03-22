@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1n0vo1"
+    data-testid="rocket-summary-id"
+  >
+    <p
+      class="css-fd8g0q"
+      data-testid="mission-name"
+    />
+    <p
+      data-testid="flight-number"
+    >
+      Flight Number: 
+    </p>
+    <p
+      data-testid="rocket-name"
+    >
+      Rocket Name: 
+    </p>
+    <p
+      data-testid="mission-date"
+    />
+    <button
+      class="css-77b2el"
+      data-testid="detailsBtnId"
+    >
+      Details
+    </button>
+    <div
+      class="css-d04zvd"
+    >
+      <img
+        class="css-54d50x"
+        data-testid="logoId"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
