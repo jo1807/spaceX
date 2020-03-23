@@ -37,5 +37,24 @@ export const launches = [
       flickr_images:
         "https://farm9.staticflickr.com/8749/16788442562_ed460c2d9e_o.jpg"
     }
+  },
+  {
+    id: 3,
+    flight_number: 23,
+    mission_name: "TEST3",
+    launch_year: "2011",
+    launch_date_local: "2015-02-11T19:03:00-04:00",
+    details: "Testing Details.",
+    launch_success: true,
+    rocket: {
+      rocket_id: "falcon13",
+      rocket_name: "Falcon Q",
+      rocket_type: "v1.3"
+    },
+    images: {
+      mission_image: "https://images2.imgbox.com/20/10/sqPgZfej_o.png",
+      flickr_images:
+        "https://farm9.staticflickr.com/8749/16788442562_ed460c2d9e_o.jpg"
+    }
   }
 ];
