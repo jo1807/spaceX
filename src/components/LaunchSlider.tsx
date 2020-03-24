@@ -114,7 +114,7 @@ const LaunchSlider: React.FC<ILaunches> = ({ launches }) => {
         <FontAwesomeIcon icon={faChevronLeft} size="3x" color="white" />
       </SliderButton>
       <CardWrapper
-        data-testid={currentId}
+        data-testid={`card-wrapper-${currentId}`}
         currentId={currentId}
         launchId={launches.id}
       >
