@@ -58,8 +58,12 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Wrapper>
-      <Launches launches={spaceXData} statistics={statistics} />
+    <Wrapper data-testid="wrapperId">
+      <Launches
+        data-testid="launchesId"
+        launches={spaceXData}
+        statistics={statistics}
+      />
     </Wrapper>
   );
 };
