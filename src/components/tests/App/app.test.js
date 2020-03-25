@@ -1,72 +1,33 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import {
-  act,
-  render,
-  cleanup,
-  fireEvent,
-  waitFor,
-  unmountComponentAtNode,
-  asFragment
-} from "@testing-library/react";
-//import "jest-dom/extend-expect";
-import axiosMock from "axios";
+import { act, cleanup, waitFor, render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 import App from "../../../api/App";
 import { launches } from "../mockData";
 
-let container;
-
-beforeEach(() => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  document.body.removeChild(container);
-  container = null;
-});
+afterEach(cleanup);
 
 it("renders correctly", () => {
   const { asFragment } = render(<App />);
   expect(asFragment()).toMatchSnapshot();
 });
 
-it("renders user data", async () => {
-  const apiCall = jest.spyOn(global, "fetch").mockImplementation(() =>
-    Promise.resolve({
-      json: () =>
-        Promise.resolve({
-          data: launches
-        })
-    })
-  );
-  expect(apiCall).toHaveBeenCalledTimes(0);
-  await apiCall();
-  // Use the asynchronous version of act to apply resolved promises
-  await act(async () => {
-    ReactDOM.render(<App />, container);
+it("it makes api call for data that is correctly rendered", async () => {
+  const call = jest.fn().mockResolvedValue({ launches });
+
+  act(() => {
+    call();
   });
-  // expect(container.querySelector("strong").textContent).toBe(');
-  expect(apiCall).toHaveBeenCalled();
-  // remove the mock to ensure tests are completely isolated
-  global.fetch.mockRestore();
-});
+  const { getByTestId } = render(<App />);
+  expect(call).toHaveBeenCalledTimes(1);
+  const resolvedDiv = await waitFor(() => getByTestId("mission-name-1"));
 
-it("fetches and displays data", async () => {
-  const apiCall = jest.fn().mockImplementation(() =>
-    Promise.resolve({
-      data: launches
-    })
-  );
-  expect(apiCall).toHaveBeenCalledTimes(0);
-  await apiCall();
+  expect(resolvedDiv.textContent).toBe("DSCOVR");
 
-  const { container, getByTestId, queryByTestId, getByClassName } = render(
-    <App />
+  expect(getByTestId("flight-number-1").textContent).toBe("Flight Number: 20");
+
+  expect(getByTestId("rocket-name-1").textContent).toBe(
+    "Rocket Name: Falcon 9"
   );
-  await waitFor(async () => getByTestId("card-wrapper-1"));
-  expect(getByTestId("wrapperId")).toBeTruthy();
-  expect(apiCall).toHaveBeenCalledTimes(1);
+  expect(getByTestId("mission-date-1").textContent).toBe("February 11th 2015");
 });
