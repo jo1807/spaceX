@@ -33,32 +33,32 @@ exports[`renders correctly 1`] = `
     >
       <div
         class="css-1n0vo1"
-        data-testid="rocket-summary-id"
+        data-testid="rocket-summary-1-id"
       >
         <p
           class="css-fd8g0q"
-          data-testid="mission-name"
+          data-testid="mission-name-1"
         >
           DSCOVR
         </p>
         <p
-          data-testid="flight-number"
+          data-testid="flight-number-1"
         >
           Flight Number: 20
         </p>
         <p
-          data-testid="rocket-name"
+          data-testid="rocket-name-1"
         >
           Rocket Name: Falcon 9
         </p>
         <p
-          data-testid="mission-date"
+          data-testid="mission-date-1"
         >
           February 11th 2015
         </p>
         <button
           class="css-77b2el"
-          data-testid="detailsBtnId"
+          data-testid="detailsBtnId-1"
         >
           Details
         </button>
@@ -67,39 +67,39 @@ exports[`renders correctly 1`] = `
         >
           <img
             class="css-54d50x"
-            data-testid="logoId"
+            data-testid="logoId-1"
             src="https://images2.imgbox.com/63/c5/0OIpD59z_o.png"
           />
         </div>
       </div>
       <div
         class="css-1a0azdv"
-        data-testid="rocket-summary-id"
+        data-testid="rocket-summary-11-id"
       >
         <p
           class="css-fd8g0q"
-          data-testid="mission-name"
+          data-testid="mission-name-11"
         >
           TEST2
         </p>
         <p
-          data-testid="flight-number"
+          data-testid="flight-number-11"
         >
           Flight Number: 21
         </p>
         <p
-          data-testid="rocket-name"
+          data-testid="rocket-name-11"
         >
           Rocket Name: Falcon Q
         </p>
         <p
-          data-testid="mission-date"
+          data-testid="mission-date-11"
         >
           February 11th 2015
         </p>
         <button
           class="css-77b2el"
-          data-testid="detailsBtnId"
+          data-testid="detailsBtnId-11"
         >
           Details
         </button>
@@ -108,7 +108,7 @@ exports[`renders correctly 1`] = `
         >
           <img
             class="css-54d50x"
-            data-testid="logoId"
+            data-testid="logoId-11"
             src="https://images2.imgbox.com/20/10/sqPgZfej_o.png"
           />
         </div>
