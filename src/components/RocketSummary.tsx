@@ -78,22 +78,24 @@ const RocketSummary: React.FC<IRocketSummaryProps> = ({
 }) => {
   return (
     <CardWrapper
-      data-testid="rocket-summary-id"
+      data-testid={`rocket-summary-${launchId}-id`}
       currentId={currentId}
       launchId={launchId}
     >
-      <Title data-testid="mission-name">{missionName}</Title>
-      <p data-testid="flight-number">Flight Number: {flightNumber}</p>
-      <p data-testid="rocket-name">Rocket Name: {rocketName}</p>
-      <p data-testid="mission-date">{missionDate}</p>
+      <Title data-testid={`mission-name-${launchId}`}>{missionName}</Title>
+      <p data-testid={`flight-number-${launchId}`}>
+        Flight Number: {flightNumber}
+      </p>
+      <p data-testid={`rocket-name-${launchId}`}>Rocket Name: {rocketName}</p>
+      <p data-testid={`mission-date-${launchId}`}>{missionDate}</p>
       <RocketDetailsButton
-        data-testid="detailsBtnId"
+        data-testid={`detailsBtnId-${launchId}`}
         onClick={setToggleShowModal}
       >
         Details
       </RocketDetailsButton>
       <ImageWrapper>
-        <LaunchLogo data-testid="logoId" src={launchLogo} />
+        <LaunchLogo data-testid={`logoId-${launchId}`} src={launchLogo} />
       </ImageWrapper>
     </CardWrapper>
   );
