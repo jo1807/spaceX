@@ -3,29 +3,29 @@
 exports[`renders 1`] = `
 <DocumentFragment>
   <div
-    class="css-1n0vo1"
-    data-testid="rocket-summary-id"
+    class="css-1a0azdv"
+    data-testid="rocket-summary-1-id"
   >
     <p
       class="css-fd8g0q"
-      data-testid="mission-name"
+      data-testid="mission-name-1"
     />
     <p
-      data-testid="flight-number"
+      data-testid="flight-number-1"
     >
       Flight Number: 
     </p>
     <p
-      data-testid="rocket-name"
+      data-testid="rocket-name-1"
     >
       Rocket Name: 
     </p>
     <p
-      data-testid="mission-date"
+      data-testid="mission-date-1"
     />
     <button
       class="css-77b2el"
-      data-testid="detailsBtnId"
+      data-testid="detailsBtnId-1"
     >
       Details
     </button>
@@ -34,7 +34,7 @@ exports[`renders 1`] = `
     >
       <img
         class="css-54d50x"
-        data-testid="logoId"
+        data-testid="logoId-1"
       />
     </div>
   </div>
