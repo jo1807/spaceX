@@ -36,16 +36,19 @@ it("render prop launches data correctly", () => {
       flightNumber={launches[0].flight_number}
       rocketName={launches[0].rocket.rocket_name}
       missionDate={missionDate}
-      currentId={launches[0].current_id}
-      launchId={launches[0].launch_id}
+      currentId={launches[0].id}
+      launchId={launches[0].id}
       launchLogo={launches[0].images.mission_image}
     />
   );
-  expect(getByTestId("mission-name").textContent).toBe("DSCOVR");
 
-  expect(getByTestId("flight-number").textContent).toBe("Flight Number: 20");
+  expect(getByTestId("mission-name-1").textContent).toBe("DSCOVR");
 
-  expect(getByTestId("rocket-name").textContent).toBe("Rocket Name: Falcon 9");
+  expect(getByTestId("flight-number-1").textContent).toBe("Flight Number: 20");
 
-  expect(getByTestId("mission-date").textContent).toBe("February 11th 2015");
+  expect(getByTestId("rocket-name-1").textContent).toBe(
+    "Rocket Name: Falcon 9"
+  );
+
+  expect(getByTestId("mission-date-1").textContent).toBe("February 11th 2015");
 });
