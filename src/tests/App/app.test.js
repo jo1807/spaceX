@@ -2,7 +2,7 @@ import React from "react";
 import { act, cleanup, waitFor, render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import App from "../../../api/App";
+import App from "../../api/App";
 import { launches } from "../mockData";
 
 afterEach(cleanup);

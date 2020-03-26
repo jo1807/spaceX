@@ -1,7 +1,7 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
-import RocketSummary from "../../RocketSummary";
-import { LaunchLogo } from "../../RocketSummary";
+import RocketSummary from "../../components/RocketSummary";
+import { LaunchLogo } from "../../components/RocketSummary";
 import { launches } from "../mockData";
 import moment from "moment";
 

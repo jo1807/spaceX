@@ -74,32 +74,32 @@ exports[`renders correctly 1`] = `
       </div>
       <div
         class="css-1a0azdv"
-        data-testid="rocket-summary-11-id"
+        data-testid="rocket-summary-2-id"
       >
         <p
           class="css-fd8g0q"
-          data-testid="mission-name-11"
+          data-testid="mission-name-2"
         >
           TEST2
         </p>
         <p
-          data-testid="flight-number-11"
+          data-testid="flight-number-2"
         >
           Flight Number: 21
         </p>
         <p
-          data-testid="rocket-name-11"
+          data-testid="rocket-name-2"
         >
           Rocket Name: Falcon Q
         </p>
         <p
-          data-testid="mission-date-11"
+          data-testid="mission-date-2"
         >
           February 11th 2015
         </p>
         <button
           class="css-77b2el"
-          data-testid="detailsBtnId-11"
+          data-testid="detailsBtnId-2"
         >
           Details
         </button>
@@ -108,7 +108,7 @@ exports[`renders correctly 1`] = `
         >
           <img
             class="css-54d50x"
-            data-testid="logoId-11"
+            data-testid="logoId-2"
             src="https://images2.imgbox.com/20/10/sqPgZfej_o.png"
           />
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
-import RocketDetailsButton from "../../RocketSummary";
+import RocketDetailsButton from "../../components/RocketSummary";
 
 afterEach(cleanup);
 const currentId = 1;

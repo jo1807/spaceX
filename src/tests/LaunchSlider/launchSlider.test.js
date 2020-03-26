@@ -1,8 +1,8 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
-import RocketDetailsButton from "../../RocketSummary";
-import RocketSummary from "../../RocketSummary";
-import LaunchSlider from "../../LaunchSlider";
+import RocketDetailsButton from "../../components/RocketSummary";
+import RocketSummary from "../../components/RocketSummary";
+import LaunchSlider from "../../components/LaunchSlider";
 import { launches } from "../mockData";
 
 afterEach(cleanup);
