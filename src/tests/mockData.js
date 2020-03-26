@@ -13,6 +13,9 @@ export const launches = [
       rocket_name: "Falcon 9",
       rocket_type: "v1.1"
     },
+    launch_site: {
+      site_name_long: "launch_site_1"
+    },
     images: {
       mission_image: "https://images2.imgbox.com/63/c5/0OIpD59z_o.png",
       flickr_images:
@@ -32,6 +35,9 @@ export const launches = [
       rocket_name: "Falcon Q",
       rocket_type: "v1.3"
     },
+    launch_site: {
+      site_name_long: "launch_site_2"
+    },
     images: {
       mission_image: "https://images2.imgbox.com/20/10/sqPgZfej_o.png",
       flickr_images:
@@ -50,6 +56,9 @@ export const launches = [
       rocket_id: "falcon13",
       rocket_name: "Falcon Q",
       rocket_type: "v1.3"
+    },
+    launch_site: {
+      site_name_long: "launch_site_2"
     },
     images: {
       mission_image: "https://images2.imgbox.com/20/10/sqPgZfej_o.png",
