@@ -38,6 +38,7 @@ export const getLaunchStatistics = (launches: any) => {
     allLaunchesInfo.rocketType.push(launch.rocket.rocket_type);
     allLaunchesInfo.launchSuccess.push(launch.launch_success);
     allLaunchesInfo.launchSite.push(launch.launch_site.site_name_long);
+    return null;
   });
   //keep a tally of number of occurrances of a value in array with object key/value pairs
   // e.g [2006, 2007, 2008, 2008] => [{2006: 1}, {2007:1}, {2008: 2}]
