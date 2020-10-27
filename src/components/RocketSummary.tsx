@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "@emotion/styled";
+import React, { Suspense } from "react";
+import styled from "styled-components";
 
 import { CardWrapper } from "./LaunchCard";
 
@@ -25,7 +25,7 @@ export const ImageWrapper = styled.div({
   justifyContent: "center",
   height: "100%",
   width: "100%",
-  margin: "2em"
+  margin: "2em",
 });
 
 export const LaunchLogo = styled.img<ILaunchLogo>({
@@ -36,8 +36,8 @@ export const LaunchLogo = styled.img<ILaunchLogo>({
   justifyItems: "center",
   "@media(max-width: 500px)": {
     width: "60%",
-    height: "60%"
-  }
+    height: "60%",
+  },
 });
 
 const RocketDetailsButton = styled.button({
@@ -53,17 +53,17 @@ const RocketDetailsButton = styled.button({
   ":hover": {
     background: "linear-gradient(white, grey)",
     color: "white",
-    cursor: "pointer"
+    cursor: "pointer",
   },
   "@media(max-width: 1024px)": {
     width: "10em",
-    height: "5em"
-  }
+    height: "5em",
+  },
 });
 
 const Title = styled.p({
   paddingTop: "2em",
-  fontWeight: "bold"
+  fontWeight: "bold",
 });
 
 const RocketSummary: React.FC<IRocketSummaryProps> = ({
@@ -74,30 +74,32 @@ const RocketSummary: React.FC<IRocketSummaryProps> = ({
   currentId,
   launchId,
   launchLogo,
-  setToggleShowModal
+  setToggleShowModal,
 }) => {
   return (
-    <CardWrapper
-      data-testid={`rocket-summary-${launchId}-id`}
-      currentId={currentId}
-      launchId={launchId}
-    >
-      <Title data-testid={`mission-name-${launchId}`}>{missionName}</Title>
-      <p data-testid={`flight-number-${launchId}`}>
-        Flight Number: {flightNumber}
-      </p>
-      <p data-testid={`rocket-name-${launchId}`}>Rocket Name: {rocketName}</p>
-      <p data-testid={`mission-date-${launchId}`}>{missionDate}</p>
-      <RocketDetailsButton
-        data-testid={`detailsBtnId-${launchId}`}
-        onClick={setToggleShowModal}
+    <Suspense fallback={<div>Loading...</div>}>
+      <CardWrapper
+        data-testid={`rocket-summary-${launchId}-id`}
+        currentId={currentId}
+        launchId={launchId}
       >
-        Details
-      </RocketDetailsButton>
-      <ImageWrapper>
-        <LaunchLogo data-testid={`logoId-${launchId}`} src={launchLogo} />
-      </ImageWrapper>
-    </CardWrapper>
+        <Title data-testid={`mission-name-${launchId}`}>{missionName}</Title>
+        <p data-testid={`flight-number-${launchId}`}>
+          Flight Number: {flightNumber}
+        </p>
+        <p data-testid={`rocket-name-${launchId}`}>Rocket Name: {rocketName}</p>
+        <p data-testid={`mission-date-${launchId}`}>{missionDate}</p>
+        <RocketDetailsButton
+          data-testid={`detailsBtnId-${launchId}`}
+          onClick={setToggleShowModal}
+        >
+          Details
+        </RocketDetailsButton>
+        <ImageWrapper>
+          <LaunchLogo data-testid={`logoId-${launchId}`} src={launchLogo} />
+        </ImageWrapper>
+      </CardWrapper>
+    </Suspense>
   );
 };
 

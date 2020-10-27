@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 import { ISpaceXData } from "../api/App";
 import RocketDetails from "./RocketDetails";
@@ -21,7 +21,7 @@ interface ILaunchLogo {
   src: string;
 }
 
-export const CardWrapper = styled.div<ICardWrapper>(props => ({
+export const CardWrapper = styled.div<ICardWrapper>((props) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -34,7 +34,7 @@ export const CardWrapper = styled.div<ICardWrapper>(props => ({
   boxShadow:
     "0px 20px 25px -5px rgba(232,232,232,1), 0px 20px 20px -5px rgba(240,240,240,1)",
   opacity: props.currentId === props.launchId ? 1 : 0.7,
-  transform: props.currentId === props.launchId ? "scale(0.9)" : "scale(0.8)"
+  transform: props.currentId === props.launchId ? "scale(0.9)" : "scale(0.8)",
 }));
 
 export const ImageWrapper = styled.div({
@@ -42,7 +42,7 @@ export const ImageWrapper = styled.div({
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  height: "50%"
+  height: "50%",
 });
 
 export const LaunchLogo = styled.img<ILaunchLogo>({
@@ -50,7 +50,7 @@ export const LaunchLogo = styled.img<ILaunchLogo>({
   display: "grid",
   maxWidth: "200px",
   alignItems: "center",
-  justifyItems: "center"
+  justifyItems: "center",
 });
 
 const LaunchCard: React.FC<ILaunch> = ({ launch, currentId }) => {

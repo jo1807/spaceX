@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import axios from "axios";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
-import Launches from "../components/Launches";
 import { getLaunchStatistics, getLaunchDetails } from "./utils";
-import img from "../images/night-sky.png";
+import nightSkyImage from "../images/night-sky.png";
+
+
+const Launches = lazy(() => import("../components/Launches"));
 
 export interface ISpaceXData {
   id: number;
@@ -30,8 +32,8 @@ interface IImagesData {
 }
 
 const Wrapper = styled.div({
-  backgroundImage: `url(${img})`,
-  height: "100vh"
+  backgroundImage: `url(${nightSkyImage})`,
+  height: "100vh",
 });
 
 const App: React.FC = () => {
@@ -42,7 +44,7 @@ const App: React.FC = () => {
     const ids = ["20", "21", "22", "35", "40", "42", "65"];
     const fetchLaunchById = async () => {
       const response = await Promise.all(
-        ids.map(id => axios(`https://api.spacexdata.com/v3/launches/${id}`))
+        ids.map((id) => axios(`https://api.spacexdata.com/v3/launches/${id}`))
       );
       setSpaceXData(getLaunchDetails(response));
     };
@@ -59,13 +61,25 @@ const App: React.FC = () => {
 
   return (
     <Wrapper data-testid="wrapperId">
-      <Launches
-        data-testid="launchesId"
-        launches={spaceXData}
-        statistics={statistics}
-      />
+      {/* {spaceXData ? (
+        <div>
+          <Text>Loading...</Text>
+        </div>
+      ) : ( */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Launches
+          data-testid="launchesId"
+          launches={spaceXData}
+          statistics={statistics}
+        />
+      </Suspense>
+      {/* )} */}
     </Wrapper>
   );
 };
+
+// const Text = styled.p({
+//   color: "white",
+// });
 
 export default App;

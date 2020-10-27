@@ -1,9 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
+import styled from "styled-components";
+
 import { select, Selection } from "d3-selection";
 import { axisLeft, axisBottom } from "d3-axis";
 import { scaleLinear, scaleBand } from "d3-scale";
 import { max } from "d3-array";
-import styled from "@emotion/styled";
+
 
 interface IChartProps {
   statistics: Array<object>;

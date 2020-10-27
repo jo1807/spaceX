@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
-  faChevronRight
+  faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 import LaunchCard from "./LaunchCard";
@@ -26,10 +26,10 @@ const LaunchSliderWrapper = styled.div({
   display: "grid",
   alignSelf: "center",
   justifySelf: "center",
-  gridTemplateColumns: "0.5fr 3fr 0.5fr"
+  gridTemplateColumns: "0.5fr 3fr 0.5fr",
 });
 
-const SliderButton = styled.button<ISliderButtonProps>(prop => ({
+const SliderButton = styled.button<ISliderButtonProps>((prop) => ({
   backgroundColor: "#0E54D6",
   alignSelf: "center",
   justifySelf: "center",
@@ -42,22 +42,22 @@ const SliderButton = styled.button<ISliderButtonProps>(prop => ({
   outline: "none",
   ":hover": {
     opacity: prop.disabled ? 0.5 : 1,
-    cursor: prop.disabled ? "" : "pointer"
+    cursor: prop.disabled ? "" : "pointer",
   },
   "@media(max-width: 500px)": {
     width: "4em",
     height: "4em",
-    margin: "0 1em"
-  }
+    margin: "0 1em",
+  },
 }));
 
-const CardWrapper = styled.div<ICardWrapper>(props => ({
+const CardWrapper = styled.div<ICardWrapper>((props) => ({
   display: "grid",
   gridTemplateColumns: "1fr 1fr 1fr",
   height: "100%",
   textAlign: "center",
   "div:nth-child(1)": {
-    gridColumn: props.currentId === 1 ? 2 : 1
+    gridColumn: props.currentId === 1 ? 2 : 1,
   },
   "@media(max-width: 1024px)": {
     gridTemplateColumns: "1fr",
@@ -65,18 +65,18 @@ const CardWrapper = styled.div<ICardWrapper>(props => ({
     justifySelf: "center",
     "div:nth-child(1)": {
       display: props.currentId === 1 ? "grid" : "none",
-      gridColumn: 1
+      gridColumn: 1,
     },
     "div:nth-child(2)": {
-      display: props.currentId === 1 ? "none" : "grid"
+      display: props.currentId === 1 ? "none" : "grid",
     },
     "div:nth-child(3)": {
-      display: "none"
-    }
+      display: "none",
+    },
   },
   "@media(max-width: 600px)": {
-    width: "100%"
-  }
+    width: "100%",
+  },
 }));
 
 const LaunchSlider: React.FC<ILaunches> = ({ launches }) => {

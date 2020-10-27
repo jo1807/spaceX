@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import styled from "@emotion/styled";
+import React, { useState, lazy, Suspense } from "react";
+import styled from "styled-components";
 
 import SpaceXHeader from "./SpaceXHeader";
-import LaunchSlider from "./LaunchSlider";
 import Charts from "./Charts";
+const LaunchSlider = lazy(() => import("./LaunchSlider"));
 
 interface ILaunches {
   launches: object[];
@@ -14,7 +14,11 @@ const Wrapper = styled.div({
   diplay: "grid",
   alignItems: "center",
   justifyItems: "center",
-  gridTemplateRows: "1fr 1fr"
+  gridTemplateRows: "1fr 1fr",
+});
+
+const Text = styled.p({
+  color: "white",
 });
 
 const Launches: React.FC<ILaunches> = ({ launches, statistics }) => {
@@ -33,7 +37,9 @@ const Launches: React.FC<ILaunches> = ({ launches, statistics }) => {
       {showStatistics ? (
         <Charts statistics={statistics} />
       ) : (
-        <LaunchSlider launches={launches} />
+        <Suspense fallback={<Text>Loading...</Text>}>
+          <LaunchSlider launches={launches} />
+        </Suspense>
       )}
     </Wrapper>
   );
