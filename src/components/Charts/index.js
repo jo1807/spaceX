@@ -1,5 +1,4 @@
 import React from "react";
-//import styled from "styled-components";
 
 import BarChart from "./BarChart2";
 import PieChart from "./PieChart";
