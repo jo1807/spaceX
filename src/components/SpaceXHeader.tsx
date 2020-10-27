@@ -10,6 +10,24 @@ interface ISpaceXHeaderProps {
   statistics: any;
 }
 
+const SpaceXHeader: React.FC<ISpaceXHeaderProps> = ({
+  statistics,
+  handleShowStatisticsModal
+}) => {
+  return (
+    <HeaderWrapper>
+      <LogoWrapper>
+        <img alt={"logo"} src={logo} height={"100px"} width={"100%"} />
+      </LogoWrapper>
+      {statistics.length && (
+        <GraphButton onClick={() => handleShowStatisticsModal()}>
+          <FontAwesomeIcon icon={faChartBar} size="2x" color="white" />
+        </GraphButton>
+      )}
+    </HeaderWrapper>
+  );
+};
+
 const HeaderWrapper = styled.div({
   display: "grid",
   gridTemplateColumns: "2fr 1fr"
@@ -49,23 +67,5 @@ const GraphButton = styled.div({
     marginRight: "1em"
   }
 });
-
-const SpaceXHeader: React.FC<ISpaceXHeaderProps> = ({
-  statistics,
-  handleShowStatisticsModal
-}) => {
-  return (
-    <HeaderWrapper>
-      <LogoWrapper>
-        <img alt={"logo"} src={logo} height={"100px"} width={"100%"} />
-      </LogoWrapper>
-      {statistics.length && (
-        <GraphButton onClick={() => handleShowStatisticsModal()}>
-          <FontAwesomeIcon icon={faChartBar} size="2x" color="white" />
-        </GraphButton>
-      )}
-    </HeaderWrapper>
-  );
-};
 
 export default SpaceXHeader;

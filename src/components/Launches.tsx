@@ -10,17 +10,6 @@ interface ILaunches {
   statistics: object[];
 }
 
-const Wrapper = styled.div({
-  diplay: "grid",
-  alignItems: "center",
-  justifyItems: "center",
-  gridTemplateRows: "1fr 1fr",
-});
-
-const Text = styled.p({
-  color: "white",
-});
-
 const Launches: React.FC<ILaunches> = ({ launches, statistics }) => {
   const [showStatistics, setshowStatisticsModal] = useState<boolean>(false);
 
@@ -44,5 +33,16 @@ const Launches: React.FC<ILaunches> = ({ launches, statistics }) => {
     </Wrapper>
   );
 };
+
+const Wrapper = styled.div({
+  diplay: "grid",
+  alignItems: "center",
+  justifyItems: "center",
+  gridTemplateRows: "1fr 1fr",
+});
+
+const Text = styled.p({
+  color: "white",
+});
 
 export default Launches;

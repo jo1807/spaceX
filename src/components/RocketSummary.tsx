@@ -18,6 +18,43 @@ interface IRocketSummaryProps {
   setToggleShowModal: () => void;
 }
 
+const RocketSummary: React.FC<IRocketSummaryProps> = ({
+  missionName,
+  flightNumber,
+  rocketName,
+  missionDate,
+  currentId,
+  launchId,
+  launchLogo,
+  setToggleShowModal,
+}) => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CardWrapper
+        data-testid={`rocket-summary-${launchId}-id`}
+        currentId={currentId}
+        launchId={launchId}
+      >
+        <Title data-testid={`mission-name-${launchId}`}>{missionName}</Title>
+        <p data-testid={`flight-number-${launchId}`}>
+          Flight Number: {flightNumber}
+        </p>
+        <p data-testid={`rocket-name-${launchId}`}>Rocket Name: {rocketName}</p>
+        <p data-testid={`mission-date-${launchId}`}>{missionDate}</p>
+        <RocketDetailsButton
+          data-testid={`detailsBtnId-${launchId}`}
+          onClick={setToggleShowModal}
+        >
+          Details
+        </RocketDetailsButton>
+        <ImageWrapper>
+          <LaunchLogo data-testid={`logoId-${launchId}`} src={launchLogo} />
+        </ImageWrapper>
+      </CardWrapper>
+    </Suspense>
+  );
+};
+
 export const ImageWrapper = styled.div({
   display: "flex",
   flexDirection: "column",
@@ -65,42 +102,5 @@ const Title = styled.p({
   paddingTop: "2em",
   fontWeight: "bold",
 });
-
-const RocketSummary: React.FC<IRocketSummaryProps> = ({
-  missionName,
-  flightNumber,
-  rocketName,
-  missionDate,
-  currentId,
-  launchId,
-  launchLogo,
-  setToggleShowModal,
-}) => {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <CardWrapper
-        data-testid={`rocket-summary-${launchId}-id`}
-        currentId={currentId}
-        launchId={launchId}
-      >
-        <Title data-testid={`mission-name-${launchId}`}>{missionName}</Title>
-        <p data-testid={`flight-number-${launchId}`}>
-          Flight Number: {flightNumber}
-        </p>
-        <p data-testid={`rocket-name-${launchId}`}>Rocket Name: {rocketName}</p>
-        <p data-testid={`mission-date-${launchId}`}>{missionDate}</p>
-        <RocketDetailsButton
-          data-testid={`detailsBtnId-${launchId}`}
-          onClick={setToggleShowModal}
-        >
-          Details
-        </RocketDetailsButton>
-        <ImageWrapper>
-          <LaunchLogo data-testid={`logoId-${launchId}`} src={launchLogo} />
-        </ImageWrapper>
-      </CardWrapper>
-    </Suspense>
-  );
-};
 
 export default RocketSummary;

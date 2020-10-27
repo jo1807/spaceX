@@ -22,6 +22,63 @@ interface ISliderButtonProps {
   disabled: boolean;
 }
 
+const LaunchSlider: React.FC<ILaunches> = ({ launches }) => {
+  const [allLaunches, setAllLaunches] = useState<ISpaceXData[]>(launches);
+  const [currentId, setCurrentId] = useState<number>(1);
+
+  useEffect(() => {
+    setAllLaunches(launches);
+  }, [launches]);
+
+  const launchesInView = () => {
+    if (currentId === 1) {
+      return allLaunches.slice(0, 2);
+    }
+    if (currentId === allLaunches.length) {
+      return allLaunches.slice(currentId - 2, currentId);
+    }
+    return allLaunches.slice(currentId - 2, currentId + 1);
+  };
+
+  const onPrevClick = () => {
+    setCurrentId(currentId - 1);
+  };
+
+  const onNextClick = () => {
+    setCurrentId(currentId + 1);
+  };
+  
+  return (
+    <LaunchSliderWrapper>
+      <SliderButton
+        data-testid="back-btn"
+        onClick={onPrevClick}
+        disabled={currentId === 1}
+      >
+        <FontAwesomeIcon icon={faChevronLeft} size="3x" color="white" />
+      </SliderButton>
+      <CardWrapper
+        data-testid={`card-wrapper-${currentId}`}
+        currentId={currentId}
+        launchId={launches.id}
+      >
+        {launchesInView().map((launch: ISpaceXData, i: number) => {
+          return (
+            <LaunchCard key={launch.id} launch={launch} currentId={currentId} />
+          );
+        })}
+      </CardWrapper>
+      <SliderButton
+        data-testid="next-btn"
+        onClick={onNextClick}
+        disabled={currentId === allLaunches.length}
+      >
+        <FontAwesomeIcon icon={faChevronRight} size="3x" color="white" />
+      </SliderButton>
+    </LaunchSliderWrapper>
+  );
+};
+
 const LaunchSliderWrapper = styled.div({
   display: "grid",
   alignSelf: "center",
@@ -78,61 +135,5 @@ const CardWrapper = styled.div<ICardWrapper>((props) => ({
     width: "100%",
   },
 }));
-
-const LaunchSlider: React.FC<ILaunches> = ({ launches }) => {
-  const [allLaunches, setAllLaunches] = useState<ISpaceXData[]>(launches);
-  const [currentId, setCurrentId] = useState<number>(1);
-
-  useEffect(() => {
-    setAllLaunches(launches);
-  }, [launches]);
-
-  const launchesInView = () => {
-    if (currentId === 1) {
-      return allLaunches.slice(0, 2);
-    }
-    if (currentId === allLaunches.length) {
-      return allLaunches.slice(currentId - 2, currentId);
-    }
-    return allLaunches.slice(currentId - 2, currentId + 1);
-  };
-
-  const onPrevClick = () => {
-    setCurrentId(currentId - 1);
-  };
-
-  const onNextClick = () => {
-    setCurrentId(currentId + 1);
-  };
-  return (
-    <LaunchSliderWrapper>
-      <SliderButton
-        data-testid="back-btn"
-        onClick={onPrevClick}
-        disabled={currentId === 1}
-      >
-        <FontAwesomeIcon icon={faChevronLeft} size="3x" color="white" />
-      </SliderButton>
-      <CardWrapper
-        data-testid={`card-wrapper-${currentId}`}
-        currentId={currentId}
-        launchId={launches.id}
-      >
-        {launchesInView().map((launch: ISpaceXData, i: number) => {
-          return (
-            <LaunchCard key={launch.id} launch={launch} currentId={currentId} />
-          );
-        })}
-      </CardWrapper>
-      <SliderButton
-        data-testid="next-btn"
-        onClick={onNextClick}
-        disabled={currentId === allLaunches.length}
-      >
-        <FontAwesomeIcon icon={faChevronRight} size="3x" color="white" />
-      </SliderButton>
-    </LaunchSliderWrapper>
-  );
-};
 
 export default LaunchSlider;

@@ -21,6 +21,24 @@ interface IRocketImage {
   src: string;
 }
 
+const RocketDetails: React.SFC<IRocketDetailsProps> = ({
+  details,
+  image,
+  toggleShowModal,
+  currentId,
+  launchId
+}) => {
+  return (
+    <CardWrapper currentId={currentId} launchId={launchId}>
+      <CloseButtonWrapper onClick={() => toggleShowModal()}>
+        <FontAwesomeIcon icon={faTimes} size="3x" color="white" />
+      </CloseButtonWrapper>
+      <ImageWrapper src={image} />
+      <Details>{details}</Details>
+    </CardWrapper>
+  );
+};
+
 const CardWrapper = styled.div<ICardWrapper>(props => ({
   display: "grid",
   color: "black",
@@ -71,23 +89,5 @@ const Details = styled.p({
     padding: "0em 1em"
   }
 });
-
-const RocketDetails: React.SFC<IRocketDetailsProps> = ({
-  details,
-  image,
-  toggleShowModal,
-  currentId,
-  launchId
-}) => {
-  return (
-    <CardWrapper currentId={currentId} launchId={launchId}>
-      <CloseButtonWrapper onClick={() => toggleShowModal()}>
-        <FontAwesomeIcon icon={faTimes} size="3x" color="white" />
-      </CloseButtonWrapper>
-      <ImageWrapper src={image} />
-      <Details>{details}</Details>
-    </CardWrapper>
-  );
-};
 
 export default RocketDetails;

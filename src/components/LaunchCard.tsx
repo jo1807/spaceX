@@ -21,6 +21,41 @@ interface ILaunchLogo {
   src: string;
 }
 
+const LaunchCard: React.FC<ILaunch> = ({ launch, currentId }) => {
+
+  const [showModal, toggleShowModal] = useState(false);
+
+  const missionDate = moment(launch.launch_date_local).format("MMMM Do YYYY");
+
+  const setToggleShowModal = () => {
+    if (launch.id === currentId) {
+      toggleShowModal(!showModal);
+    }
+  };
+
+  return showModal ? (
+    <RocketDetails
+      currentId={currentId}
+      launchId={launch.id}
+      details={launch.details}
+      image={launch.images.flickr_images}
+      show={showModal}
+      toggleShowModal={toggleShowModal}
+    />
+  ) : (
+    <RocketSummary
+      currentId={currentId}
+      launchId={launch.id}
+      missionName={launch.mission_name}
+      flightNumber={launch.flight_number}
+      rocketName={launch.rocket.rocket_name}
+      missionDate={missionDate}
+      launchLogo={launch.images.mission_image}
+      setToggleShowModal={setToggleShowModal}
+    />
+  );
+};
+
 export const CardWrapper = styled.div<ICardWrapper>((props) => ({
   display: "flex",
   flexDirection: "column",
@@ -52,38 +87,5 @@ export const LaunchLogo = styled.img<ILaunchLogo>({
   alignItems: "center",
   justifyItems: "center",
 });
-
-const LaunchCard: React.FC<ILaunch> = ({ launch, currentId }) => {
-  const missionDate = moment(launch.launch_date_local).format("MMMM Do YYYY");
-  const [showModal, toggleShowModal] = useState(false);
-
-  const setToggleShowModal = () => {
-    if (launch.id === currentId) {
-      toggleShowModal(!showModal);
-    }
-  };
-
-  return showModal ? (
-    <RocketDetails
-      currentId={currentId}
-      launchId={launch.id}
-      details={launch.details}
-      image={launch.images.flickr_images}
-      show={showModal}
-      toggleShowModal={toggleShowModal}
-    />
-  ) : (
-    <RocketSummary
-      currentId={currentId}
-      launchId={launch.id}
-      missionName={launch.mission_name}
-      flightNumber={launch.flight_number}
-      rocketName={launch.rocket.rocket_name}
-      missionDate={missionDate}
-      launchLogo={launch.images.mission_image}
-      setToggleShowModal={setToggleShowModal}
-    />
-  );
-};
 
 export default LaunchCard;
