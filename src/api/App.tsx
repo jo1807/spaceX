@@ -1,12 +1,16 @@
-import React, { useState, useEffect, lazy, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
+import { Launches } from "../components/Launches";
 import { getLaunchStatistics, getLaunchDetails } from "./utils";
 import nightSkyImage from "../images/night-sky.png";
-
-
-const Launches = lazy(() => import("../components/Launches"));
 
 export interface ISpaceXData {
   id: number;
@@ -37,7 +41,7 @@ const Wrapper = styled.div({
 });
 
 const App: React.FC = () => {
-  const [spaceXData, setSpaceXData] = useState<object[]>([]);
+  const [spaceXData, setSpaceXData] = useState<ISpaceXData[]>([]);
   const [statistics, setlaunchStatistics] = useState<object[]>([]);
 
   useEffect(() => {
@@ -61,25 +65,25 @@ const App: React.FC = () => {
 
   return (
     <Wrapper data-testid="wrapperId">
-      {/* {spaceXData ? (
+    {spaceXData ? (
         <div>
           <Text>Loading...</Text>
         </div>
-      ) : ( */}
-      <Suspense fallback={<div>Loading...</div>}>
+      ) : ( 
+
         <Launches
           data-testid="launchesId"
           launches={spaceXData}
           statistics={statistics}
         />
-      </Suspense>
-      {/* )} */}
+
+)}
     </Wrapper>
   );
 };
 
-// const Text = styled.p({
-//   color: "white",
-// });
+const Text = styled.p({
+  color: "white",
+});
 
 export default App;
