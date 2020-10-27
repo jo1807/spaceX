@@ -77,7 +77,7 @@ const App: React.FC = () => {
           statistics={statistics}
         />
 
-)}
+    )}
     </Wrapper>
   );
 };
