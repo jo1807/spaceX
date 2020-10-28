@@ -7,11 +7,6 @@ import moment from "moment";
 
 afterEach(cleanup);
 
-it("renders", () => {
-  const { asFragment } = render(<RocketSummary />);
-  expect(asFragment()).toMatchSnapshot();
-});
-
 it("calls correct function on click", () => {
   const onClick = jest.fn();
   const { getByText } = render(<RocketSummary setToggleShowModal={onClick} />);

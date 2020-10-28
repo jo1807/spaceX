@@ -11,11 +11,6 @@ import { launches } from "../mockData";
 
 afterEach(cleanup);
 
-it("renders correctly", () => {
-  const { asFragment } = render(<LaunchSlider launches={launches} />);
-  expect(asFragment()).toMatchSnapshot();
-});
-
 it("correctly shows next card in slider on click of next button", async () => {
   const { getByTestId, container } = render(
     <LaunchSlider launches={launches} />
