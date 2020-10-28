@@ -1,1 +1,2 @@
-export { Launches } from './Launches';
+import Launches from './Launches';
+export { Launches };
