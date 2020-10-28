@@ -14,16 +14,15 @@ const SpaceXHeader: React.FC<ISpaceXHeaderProps> = ({
   hasStatistics,
   handleShowStatisticsModal
 }) => {
-console.log(hasStatistics, handleShowStatisticsModal)
   return (
     <HeaderWrapper>
       <LogoWrapper>
-        <img alt={"logo"} src={logo} height={"100px"} width={"100%"} />
+        <img alt={"logo"} src={logo} height={"100px"} width={"100%"}/>
       </LogoWrapper>
    {hasStatistics && (
-        <GraphButton onClick={() => handleShowStatisticsModal()}>
+        <ChartButton onClick={() => handleShowStatisticsModal()}>
           <FontAwesomeIcon icon={faChartBar} size="2x" color="white" />
-        </GraphButton>
+        </ChartButton>
      )} 
     </HeaderWrapper>
   );
@@ -47,7 +46,7 @@ const LogoWrapper = styled.div({
   }
 });
 
-const GraphButton = styled.div({
+const ChartButton = styled.button({
   backgroundColor: "#FA3E3E",
   width: "50%",
   margin: "1.5em 2em 0em 0em",
@@ -59,6 +58,7 @@ const GraphButton = styled.div({
   gridTemplateColumns: "1fr",
   alignItems: "center",
   justifyItems: "center",
+  border: 'none',
   ":hover": {
     backgroundColor: "#E82C2C",
     cursor: "pointer"
