@@ -66,17 +66,15 @@ const App: React.FC = () => {
   return (
     <Wrapper data-testid="wrapperId">
     {spaceXData ? (
-        <div>
-          <Text>Loading...</Text>
-        </div>
-      ) : ( 
-
         <Launches
           data-testid="launchesId"
           launches={spaceXData}
           statistics={statistics}
         />
-
+      ) : ( 
+        <div>
+          <Text>Loading...</Text>
+        </div>
     )}
     </Wrapper>
   );
