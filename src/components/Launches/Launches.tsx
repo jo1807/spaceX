@@ -1,8 +1,8 @@
 import React, { useState, lazy, Suspense } from "react";
 import styled from "styled-components";
 
-import SpaceXHeader from "../SpaceXHeader";
-import Charts from "../Charts";
+import { SpaceXHeader } from "../SpaceXHeader";
+import { Charts } from "../Charts";
 
 const LaunchSlider = lazy(() => import("../LaunchSlider"));
 
@@ -21,7 +21,7 @@ const Launches: React.FC<ILaunches> = ({ launches, statistics }) => {
   return (
     <Wrapper>
       <SpaceXHeader
-        statistics={statistics}
+        hasStatistics={statistics ? true : false}
         handleShowStatisticsModal={handleShowStatisticsModal}
       />
       {showStatistics ? (
