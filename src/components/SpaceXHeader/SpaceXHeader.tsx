@@ -10,23 +10,19 @@ export interface ISpaceXHeaderProps {
   hasStatistics: boolean;
 }
 
-const SpaceXHeader: React.FC<ISpaceXHeaderProps> = ({
-  hasStatistics,
-  handleShowStatisticsModal
-}) => {
-  return (
+const SpaceXHeader = ({hasStatistics, handleShowStatisticsModal }:ISpaceXHeaderProps) => 
+  (
     <HeaderWrapper>
       <LogoWrapper>
         <img alt={"logo"} src={logo} height={"100px"} width={"100%"}/>
       </LogoWrapper>
-   {hasStatistics && (
+      {hasStatistics && (
         <ChartButton onClick={() => handleShowStatisticsModal()}>
           <FontAwesomeIcon icon={faChartBar} size="2x" color="white" />
         </ChartButton>
-     )} 
+      )} 
     </HeaderWrapper>
   );
-};
 
 const HeaderWrapper = styled.div({
   display: "grid",
@@ -59,6 +55,8 @@ const ChartButton = styled.button({
   alignItems: "center",
   justifyItems: "center",
   border: 'none',
+  focus: 'none',
+  outline: 'none',
   ":hover": {
     backgroundColor: "#E82C2C",
     cursor: "pointer"
