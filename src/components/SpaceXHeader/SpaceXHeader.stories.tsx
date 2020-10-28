@@ -4,14 +4,12 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import SpaceXHeader, { ISpaceXHeaderProps } from './SpaceXHeader';
 
-
 export default {
   title: 'Components/SpaceXHeader',
   component: SpaceXHeader,
 } as Meta;
 
 const Template: Story<ISpaceXHeaderProps> = (args) => <SpaceXHeader {...args} />;
-
 
 export const WithButton = Template.bind({});
 WithButton.args = {
