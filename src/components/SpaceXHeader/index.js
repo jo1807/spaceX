@@ -1,2 +1,2 @@
 import SpaceXHeader from './SpaceXHeader';
-export { SpaceXHeader } ;
+export { SpaceXHeader };
