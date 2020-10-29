@@ -1,24 +1,14 @@
 import React, { useState } from "react";
 import moment from "moment";
-import styled from "styled-components";
 
 import { ISpaceXData } from "../api/App";
 import RocketDetails from "./RocketDetails";
-import RocketSummary from "./RocketSummary";
+import { MissionSummary } from "./MissionSummary";
 
 interface ILaunch {
   launch: ISpaceXData;
   currentId: number;
   key: number;
-}
-
-interface ICardWrapper {
-  currentId: number;
-  launchId: number;
-}
-
-interface ILaunchLogo {
-  src: string;
 }
 
 const LaunchCard: React.FC<ILaunch> = ({ launch, currentId }) => {
@@ -43,7 +33,7 @@ const LaunchCard: React.FC<ILaunch> = ({ launch, currentId }) => {
       toggleShowModal={toggleShowModal}
     />
   ) : (
-    <RocketSummary
+    <MissionSummary
       currentId={currentId}
       launchId={launch.id}
       missionName={launch.mission_name}
@@ -55,37 +45,5 @@ const LaunchCard: React.FC<ILaunch> = ({ launch, currentId }) => {
     />
   );
 };
-
-export const CardWrapper = styled.div<ICardWrapper>((props) => ({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  height: "600px",
-  justifyItems: "center",
-  color: "white",
-  backgroundColor: "black",
-  borderRadius: "2.5em",
-  transition: props.currentId === props.launchId ? "all 1s ease-out" : "",
-  boxShadow:
-    "0px 20px 25px -5px rgba(232,232,232,1), 0px 20px 20px -5px rgba(240,240,240,1)",
-  opacity: props.currentId === props.launchId ? 1 : 0.7,
-  transform: props.currentId === props.launchId ? "scale(0.9)" : "scale(0.8)",
-}));
-
-export const ImageWrapper = styled.div({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  height: "50%",
-});
-
-export const LaunchLogo = styled.img<ILaunchLogo>({
-  objectFit: "cover",
-  display: "grid",
-  maxWidth: "200px",
-  alignItems: "center",
-  justifyItems: "center",
-});
 
 export default LaunchCard;
