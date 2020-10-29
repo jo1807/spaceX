@@ -21,7 +21,7 @@ interface IRocketImage {
   src: string;
 }
 
-const RocketDetails: React.SFC<IRocketDetailsProps> = ({
+const RocketDetails: React.FC<IRocketDetailsProps> = ({
   details,
   image,
   toggleShowModal,
