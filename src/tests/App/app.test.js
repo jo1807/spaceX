@@ -13,16 +13,14 @@ it("it makes api call for data that is correctly rendered", async () => {
   act(() => {
     call();
   });
-  const { getByTestId } = render(<App />);
+
+  const { getByText } = render(<App />);
+
   expect(call).toHaveBeenCalledTimes(1);
-  // const resolvedDiv = await waitFor(() => getByTestId("mission-name-1"));
 
-  // expect(resolvedDiv.textContent).toBe("DSCOVR");
-
-  // expect(getByTestId("flight-number-1").textContent).toBe("Flight Number: 20");
-
-  // expect(getByTestId("rocket-name-1").textContent).toBe(
-  //   "Rocket Name: Falcon 9"
-  // );
-  // expect(getByTestId("mission-date-1").textContent).toBe("February 11th 2015");
+  await waitFor(() => {
+      expect(getByText("DSCOVR")).toBeVisible();
+      expect(getByText("Flight Number: 20")).toBeVisible();
+      expect(getByText("February 11th 2015")).toBeVisible();
+  });
 });

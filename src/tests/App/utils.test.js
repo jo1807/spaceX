@@ -17,6 +17,6 @@ const expectedStatistics = [
 
 describe("Util functions return correct output", () => {
   it("getLaunchStatistics return correct array of objects", () => {
-    expect(getLaunchStatistics({ data: launches })).toEqual(expectedStatistics);
+    expect(getLaunchStatistics(launches)).toEqual(expectedStatistics);
   });
 });
