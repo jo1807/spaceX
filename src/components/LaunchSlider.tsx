@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import LaunchCard from "./LaunchCard";
-import { ISpaceXData } from "../api/App";
+import { ISpaceXData } from "../types";
 
 interface ILaunches {
   launches: any;
@@ -62,7 +62,7 @@ const LaunchSlider: React.FC<ILaunches> = ({ launches }) => {
         currentId={currentId}
         launchId={launches.id}
       >
-        {launchesInView().map((launch: ISpaceXData, i: number) => {
+        {launchesInView().map((launch: ISpaceXData) => {
           return (
             <LaunchCard key={launch.id} launch={launch} currentId={currentId} />
           );

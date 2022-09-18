@@ -1,7 +1,7 @@
-import { ISpaceXData } from "./App";
+import { IAllLaunchesInfo, ILaunchDataResponse, ILaunchesResponse, ISpaceXData } from "../types";
 
-export const getLaunchDetails = (fetchedResult: any) => {
-  return fetchedResult.map((res: any, index: number) => {
+export const getLaunchDetails = (fetchedResult: ILaunchDataResponse[]) => {
+  return fetchedResult.map((res, index: number) => {
     const launchData: ISpaceXData = {
       id: index + 1,
       flight_number: res.data.flight_number,
@@ -24,15 +24,15 @@ export const getLaunchDetails = (fetchedResult: any) => {
   });
 };
 
-export const getLaunchStatistics = (launches: any) => {
-  const allLaunchesInfo: any = {
+export const getLaunchStatistics = (launches: ILaunchesResponse[]) => {
+  const allLaunchesInfo: IAllLaunchesInfo = {
     launchYear: [],
     rocketName: [],
     rocketType: [],
     launchSuccess: [],
     launchSite: []
   };
-  launches.data.map((launch: any) => {
+  launches.map((launch) => {
     allLaunchesInfo.launchYear.push(launch.launch_year);
     allLaunchesInfo.rocketName.push(launch.rocket.rocket_name);
     allLaunchesInfo.rocketType.push(launch.rocket.rocket_type);
@@ -43,7 +43,7 @@ export const getLaunchStatistics = (launches: any) => {
   //keep a tally of number of occurrances of a value in array with object key/value pairs
   // e.g [2006, 2007, 2008, 2008] => [{2006: 1}, {2007:1}, {2008: 2}]
   const statistics = Object.keys(allLaunchesInfo).map(infoType => {
-    return allLaunchesInfo[infoType].reduce((acc: any, value: string) => {
+    return allLaunchesInfo[infoType].reduce((acc: object, value: string) => {
       acc[value] ? acc[value]++ : (acc[value] = 1);
       return acc;
     }, {});

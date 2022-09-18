@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import moment from "moment";
 
-import { ISpaceXData } from "../api/App";
 import RocketDetails from "./RocketDetails";
 import { MissionSummary } from "./MissionSummary";
+import { ISpaceXData } from "../types";
 
 interface ILaunch {
   launch: ISpaceXData;

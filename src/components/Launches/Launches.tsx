@@ -3,11 +3,12 @@ import styled from "styled-components";
 
 import { SpaceXHeader } from "../SpaceXHeader";
 import { Charts } from "../Charts";
+import { ISpaceXData } from "../../types";
 
 const LaunchSlider = lazy(() => import("../LaunchSlider"));
 
 interface ILaunches {
-  launches: object[];
+  launches: ISpaceXData[];
   statistics: object[];
 }
 

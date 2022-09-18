@@ -4,15 +4,20 @@ import BarChart from "./BarChart2";
 import PieChart from "./PieChart";
 import LineChart from "./LineChart";
 
-function Charts(props:any) {
+interface IChartsProps {
+  statistics: object[]
+}
+
+function Charts({ statistics }:IChartsProps) {
   const width = window.innerWidth;
+  const height = '400px';
   return (
     <>
-      <LineChart height={"400px"} width={width} statistics={props.statistics} />
+      <LineChart height={height} width={width} statistics={statistics} />
 
-      <BarChart height={"400px"} width={width} statistics={props.statistics} />
+      <BarChart height={height} width={width} statistics={statistics} />
 
-      <PieChart height={"400px"} width={width} statistics={props.statistics} />
+      <PieChart height={height} width={width} statistics={statistics} />
     </>
   );
 }
