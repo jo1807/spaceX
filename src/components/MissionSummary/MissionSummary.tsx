@@ -31,7 +31,6 @@ const MissionSummary: React.FC<IMissionSummaryProps> = ({
   launchLogo,
   setToggleShowModal,
 }) => {
-  //remove data-testid
   return (
       <CardWrapper
         data-testid={`rocket-summary-${launchId}-id`}
