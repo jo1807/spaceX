@@ -5,34 +5,7 @@ import styled from "styled-components";
 import { Launches } from "../components/Launches";
 import { getLaunchStatistics, getLaunchDetails } from "./utils";
 import nightSkyImage from "../images/night-sky.png";
-
-export interface ISpaceXData {
-  id: number;
-  flight_number: number;
-  mission_name: string;
-  launch_year: string;
-  launch_date_local: string;
-  details: string;
-  launch_success: string;
-  rocket: IRocketData;
-  images: IImagesData;
-}
-
-interface IRocketData {
-  rocket_id: string;
-  rocket_name: string;
-  rocket_type: string;
-}
-
-interface IImagesData {
-  mission_image: string;
-  flickr_images: string;
-}
-
-const Wrapper = styled.div({
-  backgroundImage: `url(${nightSkyImage})`,
-  height: "100vh",
-});
+import { ISpaceXData } from "../types";
 
 const App: React.FC = () => {
   const [spaceXData, setSpaceXData] = useState<ISpaceXData[]>([]);
@@ -52,29 +25,41 @@ const App: React.FC = () => {
   useEffect(() => {
     const fetchAllLaunches = async () => {
       const response = await axios(`https://api.spacexdata.com/v3/launches`);
-      setlaunchStatistics(getLaunchStatistics(response));
+      setlaunchStatistics(getLaunchStatistics(response.data));
     };
     fetchAllLaunches();
   }, []);
 
   return (
-    <Wrapper data-testid="wrapperId">
-    {spaceXData ? (
+    <Wrapper data-testid="space-x-data-wrapper">
+    {spaceXData.length ? (
         <Launches
           data-testid="launchesId"
           launches={spaceXData}
           statistics={statistics}
         />
       ) : ( 
-        <div>
+        <TextWrapper>
           <Text>Loading...</Text>
-        </div>
+        </TextWrapper>
     )}
     </Wrapper>
   );
 };
 
-const Text = styled.p({
+const Wrapper = styled.div({
+  backgroundImage: `url(${nightSkyImage})`,
+  height: "100vh",
+});
+
+const TextWrapper = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '100%'
+});
+
+const Text = styled.h1({
   color: "white",
 });
 
